@@ -8,6 +8,7 @@ urlpatterns = [
     path('liked', views.liked, name='liked'),
     path('getliked', views.getliked, name='getliked'),
     path('getlikedevents', views.getlikedevents, name='getlikedevents'),
+    path('getcollections', views.getcollections, name='getcollections'),
     path('delete_like/<int:event_id>/', views.delete_like, name='delete_like'),
     
 ]

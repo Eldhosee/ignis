@@ -97,8 +97,20 @@ def getlikedevents(request):
     if request.method == 'GET':
             user= user = request.query_params.get('user')
             likes=Likes.objects.filter(user=user)
+            a=[]
+            for i in likes:
+                 a.append(i.likes)
+            
    
-            serializer = EventsSerializer(likes, many=True) 
+            serializer = EventsSerializer(a, many=True) 
+            return Response(serializer.data) 
+    
+@api_view(['GET']) 
+def getcollections(request):
+    if request.method == 'GET':
+            user= user = request.query_params.get('user')
+            events=Events.objects.filter(user=user)
+            serializer = EventsSerializer(events, many=True) 
             return Response(serializer.data) 
     
 @api_view(['DELETE'])
